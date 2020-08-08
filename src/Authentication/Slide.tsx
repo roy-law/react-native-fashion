@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, useWindowDimensions, StyleSheet } from 'react-native';
+import { View, useWindowDimensions, StyleSheet } from 'react-native';
+import { Text } from '../components/Theme';
 
 const styles = StyleSheet.create({
   container: {},
@@ -7,17 +8,9 @@ const styles = StyleSheet.create({
     height: 100,
     justifyContent: 'center',
   },
-  title: {
-    fontFamily: 'SFProDisplay-Bold',
-    fontSize: 80,
-    lineHeight: 80,
-    color: 'white',
-    textAlign: 'center',
-  },
 });
 
 interface SlideProps {
-  // color: string;
   title: string;
   right?: boolean;
 }
@@ -33,7 +26,7 @@ export const Slide = ({ title, right }: SlideProps) => {
   return (
     <View style={{ width }}>
       <View style={[styles.titleContainer, { transform }]}>
-        <Text style={styles.title}>{title}</Text>
+        <Text variant='hero'>{title}</Text>
       </View>
     </View>
   );

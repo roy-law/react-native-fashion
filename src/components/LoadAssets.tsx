@@ -60,7 +60,7 @@ export const LoadAssets = ({ assets, fonts, children }: LoadAssetsProps) => {
       AsyncStorage.setItem(NAVIGATION_STATE_KEY, JSON.stringify(state)),
     []
   );
-  console.log(fontsReady, 'fontsReady');
+
   if (!assetIsReady || !fontsReady || !isNavigationReady) {
     return <AppLoading />;
   }

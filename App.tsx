@@ -3,6 +3,8 @@ import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Onboarding } from './src/Authentication/Onboarding';
 import { LoadAssets } from './src/components/LoadAssets';
+import { ThemeProvider } from '@shopify/restyle';
+import { theme } from './src/components/Theme';
 
 const fonts = {
   'SFProDisplay-Bold': require('./assets/fonts/SF-Pro-Display-Bold.otf'),
@@ -23,7 +25,9 @@ const AuthenticationNavigator = () => {
 export default function App() {
   return (
     <LoadAssets fonts={fonts}>
-      <AuthenticationNavigator />
+      <ThemeProvider theme={theme}>
+        <AuthenticationNavigator />
+      </ThemeProvider>
     </LoadAssets>
   );
 }

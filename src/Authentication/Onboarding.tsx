@@ -3,16 +3,11 @@ import { View, useWindowDimensions } from 'react-native';
 import { StyleSheet } from 'react-native';
 import { Slide } from './Slide';
 import Animated, { multiply, divide } from 'react-native-reanimated';
-import {
-  useValue,
-  onScrollEvent,
-  interpolateColor,
-  useScrollHandler,
-} from 'react-native-redash';
+import { interpolateColor, useScrollHandler } from 'react-native-redash';
 import { SubSlide } from './SubSlide';
 import { Dot } from './Dot';
+import { theme } from '../components/Theme';
 
-const SLIDER_BORDER_RADIUS = 75;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -22,13 +17,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   slider: {
-    borderBottomRightRadius: SLIDER_BORDER_RADIUS,
+    borderBottomRightRadius: theme.borderRadii.xl,
     backgroundColor: 'cyan',
   },
   footerContent: {
     flex: 1,
     backgroundColor: 'white',
-    borderTopLeftRadius: SLIDER_BORDER_RADIUS,
+    borderTopLeftRadius: theme.borderRadii.xl,
   },
 });
 
@@ -62,8 +57,6 @@ const slides = [
     color: '#FFDDDD',
   },
 ];
-
-interface OnboardingProps {}
 
 export const Onboarding = () => {
   const scroll = useRef<Animated.ScrollView>(null);
@@ -99,7 +92,7 @@ export const Onboarding = () => {
             style={{
               ...StyleSheet.absoluteFillObject,
               flexDirection: 'row',
-              height: 75,
+              height: theme.borderRadii.xl,
               justifyContent: 'center',
               alignItems: 'center',
             }}>
